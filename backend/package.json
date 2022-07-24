@@ -1,0 +1,42 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "./src/app.js",
+  "scripts": {
+    "start": "NODE_ENV=production node .",
+    "dev": "nodemon . --legacy-watch",
+    "seed": "node -r dotenv/config ./tests/seeds/index.js",
+    "test": "jest carts.api.test.js",
+    "test:watch": "npm run test -- --watchAll"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^5.0.1",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.1",
+    "ejs": "^3.1.8",
+    "express": "^4.18.1",
+    "express-handlebars": "^6.0.6",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^6.4.0",
+    "mongoose-sequence": "^5.3.1",
+    "nodemailer": "^6.7.7",
+    "pug": "^3.0.2",
+    "socket.io": "^4.5.1"
+  },
+  "devDependencies": {
+    "faker": "5.5.3",
+    "jest": "^28.1.1",
+    "nodemon": "^2.0.16",
+    "supertest": "^6.2.3"
+  },
+  "jest": {
+    "testEnvironment": "node",
+    "coveragePathIgnorePatterns": [
+      "/node_modules/"
+    ]
+  }
+}

@@ -1,0 +1,16 @@
+p
+  b Correo electrónico: 
+  span= email
+
+table
+  thead
+    tr
+      th Producto
+      th Cantidad 
+      th Precio
+  tbody
+    each item in items
+      tr
+        td= item.name
+        td= item.quantity
+        td= item.price

@@ -1,0 +1,23 @@
+table(class="table")
+  tbody()
+    tr
+      td Argumentos de entrada
+      td= serverInfo.args.toString()
+    tr
+      td Path de ejecución
+      td= serverInfo.execPath
+    tr
+      td Nombre la plataforma
+      td= serverInfo.platform
+    tr
+      td ID del proceso
+      td= serverInfo.pid
+    tr
+      td Versión de NodeJS
+      td= serverInfo.version
+    tr
+      td Carpeta del proyecto
+      td= serverInfo.projectPath
+    tr
+      td Memoria total reservada
+      td= serverInfo.rss

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <ul>
+    {{#each messages}}
+      <li>
+        <div>{{ this.email }}</div>
+        <div>{{ this.content }}</div>
+      </li>
+    {{/each}}
+  </ul>
+  <select id="messageEmail">
+    {{#each emails}}
+    <option>{{ this }}</option>
+    {{/each}}
+  </select>
+  <input id="messageContent" type="text">
+  <button id="sendResponse">Enviar respuesta</button>
+  <script>
+    document.getElementById('sendResponse').addEventListener('click', () => {
+      message = {}
+      message.email = document.getElementById('messageEmail').value
+      message.content = document.getElementById('messageContent').value
+      message.type = 'system'
+
+      fetch('/api/messages', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(message)
+      })
+      .then(response => response.json())
+      .then(json => console.log(json))
+    })
+  </script>
+</body>
+</html>
